@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &240166
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -615,7 +615,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -762,8 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decf31a6ee37ad04a83f9375720bf65d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _models:
-  - {fileID: 240165}
+  _models: []
   _spawnPoint: {fileID: 2066270639}
   _startSpawnTime: 1
 --- !u!4 &1693909789

@@ -13,6 +13,7 @@ public class Move : MonoBehaviour
     private float posY = 0f;
     private float posZ = 0f;
     private float angle = 0f;
+    private bool isMove = false;
 
     void Start()
     {
@@ -21,20 +22,26 @@ public class Move : MonoBehaviour
         posX = transform.position.x;
         posY = transform.position.y;
         posZ = transform.position.z;
-        Debug.Log("_wayPointIndex start " + _wayPointIndex);
+        isMove = true;
+        //Debug.Log("_wayPointIndex start " + _wayPointIndex);
     }
- 
+
     void Update()
     {
-        Debug.Log("Lenght " + Waypoints.Points.Length);
-        Debug.Log("_wayPointIndex " + _wayPointIndex);
+        //Debug.Log("Lenght " + Waypoints.Points.Length);
+        //Debug.Log("_wayPointIndex " + _wayPointIndex);
         if (_wayPointIndex == 0)
         {
             StartMove();
         }
         else
         {
-            StartMoveByCircle();
+            if (isMove)
+            {
+                StartMoveByCircle();
+                Debug.Log("Move " + isMove);
+            }
+            
         }
     }
 
@@ -63,8 +70,6 @@ public class Move : MonoBehaviour
 
     void StartMoveByCircle()
     {
-        //WaveSpawner.enemiesAlive--;
-        //Destroy(gameObject);
         posX = Mathf.Cos(angle) * _radius;
         posY = Mathf.Sin(angle) * _radius;
         //posZ = _target.position.y;
@@ -74,6 +79,11 @@ public class Move : MonoBehaviour
         if (angle >= 360f)
         {
             angle = 0f;
+        }
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        {
+            isMove = false;
+            _model.SetActive(false);
         }
     }
 }

@@ -7,15 +7,42 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject[] _models;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _startSpawnTime;
+    [SerializeField] private GameObject _token;
+    //[SerializeField] private Transform _startTokenPosition;
+    //[SerializeField] private Transform _endTokenPosition;
+    [SerializeField] private GameObject[] _points;
+    private Transform _target;
     private float _spawnTime;
     private int _index = 0;
+    private float _time = 0f;
+    private float speed = 2f;
+    private int _wayPointIndex = 0;
 
     private void Start()
     {
         _spawnTime = _startSpawnTime;
+        _target = _points[0].transform;
     }
 
     void Update()
+    {
+        if (BoxController.IsTap)
+        {
+            Init();
+            _time += Time.deltaTime;
+            if (_time >= 8f)
+            {
+                var cloneModels = GameObject.FindGameObjectsWithTag("Model");
+                foreach (var clone in cloneModels)
+                {
+                    Destroy(clone);
+                }
+                MoveToken();
+            }
+        }
+    }
+
+    void Init()
     {
         if (_spawnTime <= 0)
         {
@@ -31,5 +58,28 @@ public class WaveSpawner : MonoBehaviour
         {
             _spawnTime -= Time.deltaTime;
         }
+    }
+
+    void MoveToken()
+    {
+        Vector3 direction = _target.position - _token.transform.position;
+        _token.transform.Translate(direction.normalized * speed * Time.deltaTime, Space.World);
+
+        if (Vector3.Distance(_token.transform.position, _target.position) <= 0.2f)
+        {
+            GetNextWayPoint();
+        }
+    }
+
+    void GetNextWayPoint()
+    {
+        if (_wayPointIndex >= _points.Length - 1)
+        {
+            speed = 0;
+            return;
+        }
+
+        _wayPointIndex++;
+        _target = _points[_wayPointIndex].transform;
     }
 }

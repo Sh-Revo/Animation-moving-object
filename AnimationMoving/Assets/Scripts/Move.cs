@@ -9,20 +9,20 @@ public class Move : MonoBehaviour
     [SerializeField] private GameObject _model;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _radius = 5f;
-    private float posX = 0f;
-    private float posY = 0f;
-    private float posZ = 0f;
-    private float angle = 0f;
-    private bool isMove = false;
+    private float _posX = 0f;
+    private float _posY = 0f;
+    private float _posZ = 0f;
+    private float _angle = 0f;
+    private bool _isMove = true;
 
     void Start()
     {
         //_model = GetComponent<Model>();
         //_target = Waypoints.Points[0];
-        posX = transform.position.x;
-        posY = transform.position.y;
-        posZ = transform.position.z;
-        isMove = true;
+        _posX = transform.position.x;
+        _posY = transform.position.y;
+        _posZ = transform.position.z;
+        //_isMove = true;
         //Debug.Log("_wayPointIndex start " + _wayPointIndex);
     }
 
@@ -36,12 +36,11 @@ public class Move : MonoBehaviour
         }
         else
         {
-            if (isMove)
+            if (_isMove)
             {
                 StartMoveByCircle();
-                Debug.Log("Move " + isMove);
+                //Debug.Log("Move " + _isMove);
             }
-            
         }
     }
 
@@ -56,34 +55,39 @@ public class Move : MonoBehaviour
         }
     }
 
-    void GetNextWayPoint()
-    {
-        if (_wayPointIndex >= Waypoints.Points.Length - 1)
-        {
-            StartMoveByCircle();
-            //Destroy(gameObject);
-            //return;
-        }
-        _wayPointIndex++;
-        _target = Waypoints.Points[_wayPointIndex];
-    }
+    //void GetNextWayPoint()
+    //{
+    //    if (_wayPointIndex >= Waypoints.Points.Length - 1)
+    //    {
+    //        StartMoveByCircle();
+    //        //Destroy(gameObject);
+    //        //return;
+    //    }
+    //    _wayPointIndex++;
+    //    _target = Waypoints.Points[_wayPointIndex];
+    //}
 
     void StartMoveByCircle()
     {
-        posX = Mathf.Cos(angle) * _radius;
-        posY = Mathf.Sin(angle) * _radius;
+        _posX = Mathf.Cos(_angle) * _radius;
+        _posY = Mathf.Sin(_angle) * _radius;
         //posZ = _target.position.y;
 
-        transform.position = new Vector3(posX, 0, posY) + new Vector3(_target.position.x, _target.position.y, _target.position.z);
-        angle += Time.deltaTime * _speed * 0.5f;
-        if (angle >= 360f)
+        transform.position = new Vector3(_posX, 0, _posY) + new Vector3(_target.position.x, _target.position.y, _target.position.z);
+        _angle += Time.deltaTime * _speed * 0.5f;
+        if (_angle >= 360f)
         {
-            angle = 0f;
+            _angle = 0f;
         }
         if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            isMove = false;
+            _isMove = false;
             _model.SetActive(false);
         }
+    }
+
+    public bool IsMove
+    {
+        get { return _isMove; }
     }
 }

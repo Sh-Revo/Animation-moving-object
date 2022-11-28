@@ -17,19 +17,13 @@ public class Move : MonoBehaviour
 
     void Start()
     {
-        //_model = GetComponent<Model>();
-        //_target = Waypoints.Points[0];
         _posX = transform.position.x;
         _posY = transform.position.y;
         _posZ = transform.position.z;
-        //_isMove = true;
-        //Debug.Log("_wayPointIndex start " + _wayPointIndex);
     }
 
     void Update()
     {
-        //Debug.Log("Lenght " + Waypoints.Points.Length);
-        //Debug.Log("_wayPointIndex " + _wayPointIndex);
         if (_wayPointIndex == 0)
         {
             StartMove();
@@ -39,7 +33,6 @@ public class Move : MonoBehaviour
             if (_isMove)
             {
                 StartMoveByCircle();
-                //Debug.Log("Move " + _isMove);
             }
         }
     }
@@ -79,11 +72,11 @@ public class Move : MonoBehaviour
         {
             _angle = 0f;
         }
-        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-        {
-            _isMove = false;
-            _model.SetActive(false);
-        }
+        //if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
+        //{
+        //    _isMove = false;
+        //    _model.SetActive(false);
+        //}
     }
 
     public bool IsMove

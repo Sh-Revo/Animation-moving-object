@@ -3,7 +3,57 @@ guid: e211d612d2fdbbf48a5a36f05608e7b0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Box
+    second: {fileID: 2100000, guid: 24a8f60cffa811f4ba2173fca060d420, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cup
+    second: {fileID: 2100000, guid: ce63469ddfea21c4d9a12c122f0e5a50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Headphones
+    second: {fileID: 2100000, guid: e99bab84f2977894388862b015a1ce19, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Lamp
+    second: {fileID: 2100000, guid: 19edd5dd0358af74389815f6d4f509a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Monitor
+    second: {fileID: 2100000, guid: 9738633f75270804b9edc282bf846cae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mouse
+    second: {fileID: 2100000, guid: fd6cfb6ea78aca84bbbd13e6923a0cf4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Shirt
+    second: {fileID: 2100000, guid: 672ad24f9dc895a4093bd85e1f81f93e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_ShirtH1
+    second: {fileID: 2100000, guid: 3d2a469b536fd824582ffa4f54ae8ce4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tap
+    second: {fileID: 2100000, guid: e375377942b41414abb0993bb0439105, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Token
+    second: {fileID: 2100000, guid: 24af221975e32924e89abe3a50f467b1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

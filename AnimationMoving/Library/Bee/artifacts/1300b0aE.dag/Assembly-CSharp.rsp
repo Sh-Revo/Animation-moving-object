@@ -387,8 +387,8 @@
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1300b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/BoxController.cs"
+"Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Move.cs"
-"Assets/Scripts/WaveSpawner.cs"
 "Assets/Scripts/Waypoints.cs"
 -langversion:9.0
 

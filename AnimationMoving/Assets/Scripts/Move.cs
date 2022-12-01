@@ -11,7 +11,6 @@ public class Move : MonoBehaviour
     [SerializeField] private float _radius = 5f;
     private float _posX = 0f;
     private float _posY = 0f;
-    private float _posZ = 0f;
     private float _angle = 0f;
     private bool _isMove = true;
 
@@ -19,7 +18,6 @@ public class Move : MonoBehaviour
     {
         _posX = transform.position.x;
         _posY = transform.position.y;
-        _posZ = transform.position.z;
     }
 
     void Update()
@@ -48,35 +46,16 @@ public class Move : MonoBehaviour
         }
     }
 
-    //void GetNextWayPoint()
-    //{
-    //    if (_wayPointIndex >= Waypoints.Points.Length - 1)
-    //    {
-    //        StartMoveByCircle();
-    //        //Destroy(gameObject);
-    //        //return;
-    //    }
-    //    _wayPointIndex++;
-    //    _target = Waypoints.Points[_wayPointIndex];
-    //}
-
     void StartMoveByCircle()
     {
         _posX = Mathf.Cos(_angle) * _radius;
         _posY = Mathf.Sin(_angle) * _radius;
-        //posZ = _target.position.y;
-
         transform.position = new Vector3(_posX, 0, _posY) + new Vector3(_target.position.x, _target.position.y, _target.position.z);
         _angle += Time.deltaTime * _speed * 0.5f;
         if (_angle >= 360f)
         {
             _angle = 0f;
         }
-        //if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-        //{
-        //    _isMove = false;
-        //    _model.SetActive(false);
-        //}
     }
 
     public bool IsMove

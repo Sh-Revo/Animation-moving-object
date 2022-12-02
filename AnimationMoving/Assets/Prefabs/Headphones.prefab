@@ -196,5 +196,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 21146453658860331, guid: a6a46755e332b04458f81e790b85b50a, type: 3}
   _model: {fileID: 8757028180147094808}
-  _speed: 14
   _radius: 9
+  _gameManager: {fileID: 2806978409035136966, guid: 963409d11b190a94791c9017012d74b8, type: 3}

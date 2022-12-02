@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2806978409035136961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2806978409035136967}
+  - component: {fileID: 2806978409035136966}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2806978409035136967
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806978409035136961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2806978409035136966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806978409035136961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: decf31a6ee37ad04a83f9375720bf65d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _models:
+  - {fileID: 8757028180147094808, guid: 0e512cf6319c9954c915d4f33693679f, type: 3}
+  - {fileID: 8757028180147094808, guid: 3ef2aa0e2ac78e442ae8b3d946d7d30f, type: 3}
+  - {fileID: 8757028180147094808, guid: 4bbb68cf46c5e2b4d810f1dea2d47848, type: 3}
+  - {fileID: 8757028180147094808, guid: 7e7aef217949e9342bb576f29fa38dc7, type: 3}
+  - {fileID: 8757028180147094808, guid: d9ba9b7fd9d5f6f47b31d79a583e5319, type: 3}
+  - {fileID: 8757028180147094808, guid: c010f24e6911ace49a462b97bc4f2a3f, type: 3}
+  - {fileID: 8757028180147094808, guid: 6b52ae0dce362364aa5ffad1ac1bf9e4, type: 3}
+  _spawnPoint: {fileID: 0}
+  _startSpawnTime: 0.5
+  _speedModel: 11
+  _timeForRotate: 10
+  _token: {fileID: 0}
+  _points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _winModel: {fileID: 0}
+  _winTarget: {fileID: 0}
+  _speedWinModel: 20
+  _animatorWinModel: {fileID: 0}
+  _tapButton: {fileID: 0}
+  _tapButtonTarget: {fileID: 0}
+  _speedButton: 25
+  _animatorTapButton: {fileID: 0}

@@ -5,19 +5,24 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    private int _wayPointIndex = 0;
     [SerializeField] private GameObject _model;
-    [SerializeField] private float _speed = 3f;
-    [SerializeField] private float _radius = 5f;
+    private GameManager _gameManager;
+    private float _radius;
+    private int _wayPointIndex = 0;
+    private float _speed;
     private float _posX = 0f;
     private float _posY = 0f;
     private float _angle = 0f;
     private bool _isMove = true;
+    private float _coefAngle = 0.5f;
 
     void Start()
     {
+        _gameManager = FindObjectOfType<GameManager>().gameObject.GetComponent<GameManager>();
         _posX = transform.position.x;
         _posY = transform.position.y;
+        _radius = _gameManager.RadiusMoveModel;
+        _speed = _gameManager.SpeedModel;
     }
 
     void Update()
@@ -51,7 +56,7 @@ public class Move : MonoBehaviour
         _posX = Mathf.Cos(_angle) * _radius;
         _posY = Mathf.Sin(_angle) * _radius;
         transform.position = new Vector3(_posX, 0, _posY) + new Vector3(_target.position.x, _target.position.y, _target.position.z);
-        _angle += Time.deltaTime * _speed * 0.5f;
+        _angle += Time.deltaTime * _speed * _coefAngle;
         if (_angle >= 360f)
         {
             _angle = 0f;

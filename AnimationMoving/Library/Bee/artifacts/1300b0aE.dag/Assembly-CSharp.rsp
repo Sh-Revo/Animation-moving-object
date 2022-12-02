@@ -389,7 +389,10 @@
 "Assets/Scripts/BoxController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/Move.cs"
+"Assets/Scripts/TapButtonController.cs"
+"Assets/Scripts/TokenController.cs"
 "Assets/Scripts/Waypoints.cs"
+"Assets/Scripts/WinObjectController.cs"
 -langversion:9.0
 
 /deterministic

@@ -8,31 +8,23 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] _models;
     [SerializeField] private Transform _spawnPoint;
     [SerializeField] private float _startSpawnTime;
+    [SerializeField] private float _speedModel;
+    [SerializeField] private float _radiusMoveModel;
     private float _spawnTime;
     private int _index = 0;
     private float _time = 0f;
     [SerializeField] private float _timeForRotate = 10f;
 
-    [Header("Token")]
-    [SerializeField] private GameObject _token;
-    [SerializeField] private GameObject[] _points;
-    private Transform _target;
-    private float _speed = 8f;
-    private int _wayPointIndex = 0;
-
-    [Header("Win Model")]
-    [SerializeField] private GameObject _winModel;
-    [SerializeField] private Transform _winTarget;
-    [SerializeField] private float _speedWinModel = 5f;
-    private int _wayPointIndexWinModel = 0;
-    [SerializeField] private Animator _animator;
-
-    
+    private TokenController _tokenController;
+    private WinObjectController _winObjectController;
+    private TapButtonController _tapButtonController;
 
     private void Start()
     {
         _spawnTime = _startSpawnTime;
-        _target = _points[0].transform;
+        _tokenController = FindObjectOfType<TokenController>().gameObject.GetComponent<TokenController>();
+        _winObjectController = FindObjectOfType<WinObjectController>().gameObject.GetComponent<WinObjectController>();
+        _tapButtonController = FindObjectOfType<TapButtonController>().gameObject.GetComponent<TapButtonController>();
     }
 
     void Update()
@@ -48,14 +40,15 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(clone);
                 }
-                MoveToken();
+                _tokenController.MoveToken();
             }
-            if (_speed == 0f)
+            if (_tokenController.Speed == 0f)
             {
-                if (_wayPointIndexWinModel == 0)
-                {
-                    StartMoveWinObject();
-                }
+                _winObjectController.StartMoveWinObject();
+            }
+            if (_winObjectController.SpeedWinModel == 0)
+            {
+                _tapButtonController.StartMoveTapButton();
             }
         }
     }
@@ -78,39 +71,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void MoveToken()
+    public float SpeedModel
     {
-        Vector3 direction = _target.position - _token.transform.position;
-        _token.transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
-        _token.transform.Rotate(0.0f, (_speed / 5), 0.0f);
-
-        if (Vector3.Distance(_token.transform.position, _target.position) <= 0.2f)
-        {
-            GetNextWayPoint();
-        }
+        get { return _speedModel; }        
     }
 
-    void GetNextWayPoint()
+    public float RadiusMoveModel
     {
-        if (_wayPointIndex >= _points.Length - 1)
-        {
-            _speed = 0;
-            return;
-        }
-
-        _wayPointIndex++;
-        _target = _points[_wayPointIndex].transform;
-    }
-
-    void StartMoveWinObject()
-    {
-        Vector3 direction = _winTarget.position - _winModel.transform.position;
-        _winModel.transform.Translate(direction.normalized * _speedWinModel * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(_winModel.transform.position, _winTarget.position) <= 0.1f)
-        {
-            _wayPointIndexWinModel = 1;
-            _animator.enabled = true;
-        }
+        get { return _radiusMoveModel; }
     }
 }

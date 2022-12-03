@@ -5,7 +5,6 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private GameObject _model;
     private GameManager _gameManager;
     private float _radius;
     private int _wayPointIndex = 0;

@@ -5,15 +5,8 @@ using UnityEngine;
 public class MoveImage : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    private float _speed = 10f;
-    private int _wayPointImageIndex = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private float _speed = 20f;
 
-    // Update is called once per frame
     void Update()
     {
         StartMoveImage();
@@ -27,7 +20,6 @@ public class MoveImage : MonoBehaviour
         if (Vector3.Distance(transform.position, _target.position) <= 0.1f)
         {
             _speed = 0;
-            _wayPointImageIndex = 1;
             Destroy(gameObject);
         }
     }

@@ -8,6 +8,7 @@ public class TapButtonController : MonoBehaviour
     [SerializeField] private Transform _tapButtonTarget;
     [SerializeField] private float _speedButton = 25f;
     [SerializeField] private Animator _animatorTapButton;
+    private bool _isTapOnButton = false;
 
     public void StartMoveTapButton()
     {
@@ -19,5 +20,15 @@ public class TapButtonController : MonoBehaviour
             _speedButton = 0f;
             _animatorTapButton.enabled = true;
         }
+    }
+
+    private void OnMouseUp()
+    {
+        _isTapOnButton = true;
+    }
+
+    public bool IsTapOnButton
+    {
+        get { return _isTapOnButton; }
     }
 }

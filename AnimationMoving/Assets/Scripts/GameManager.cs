@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         _spawnTime = _startSpawnTime;
-        _spawnTimeImages = _startSpawnTime;
+        _spawnTimeImages = _startSpawnTime; 
         _tokenController = FindObjectOfType<TokenController>().gameObject.GetComponent<TokenController>();
         _winObjectController = FindObjectOfType<WinObjectController>().gameObject.GetComponent<WinObjectController>();
         _tapButtonController = FindObjectOfType<TapButtonController>().gameObject.GetComponent<TapButtonController>();
@@ -59,6 +60,10 @@ public class GameManager : MonoBehaviour
             if (_winObjectController.SpeedWinModel == 0)
             {
                 _tapButtonController.StartMoveTapButton();
+            }
+            if (_tapButtonController.IsTapOnButton)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); 
             }
         }
     }

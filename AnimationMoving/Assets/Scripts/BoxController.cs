@@ -6,8 +6,13 @@ public class BoxController : MonoBehaviour
 {
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 1f;
-    private static bool _isTap = false;
+    private static bool _isTap;
     private int _wayPointIndex = 0;
+
+    private void Start()
+    {
+        _isTap = false;
+    }
 
     private void Update()
     {

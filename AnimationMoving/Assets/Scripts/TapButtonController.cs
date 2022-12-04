@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class TapButtonController : MonoBehaviour
+public class TapButtonController : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private GameObject _tapButton;
     [SerializeField] private Transform _tapButtonTarget;
@@ -22,9 +23,10 @@ public class TapButtonController : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    public void OnPointerDown(PointerEventData eventData)
     {
         _isTapOnButton = true;
+        Debug.Log("_isTapOnButton" + _isTapOnButton);
     }
 
     public bool IsTapOnButton

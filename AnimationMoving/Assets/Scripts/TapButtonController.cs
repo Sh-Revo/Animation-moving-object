@@ -16,7 +16,7 @@ public class TapButtonController : MonoBehaviour, IPointerDownHandler
         Vector3 direction = _tapButtonTarget.position - _tapButton.transform.position;
         _tapButton.transform.Translate(direction.normalized * _speedButton * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(_tapButton.transform.position, _tapButtonTarget.position) <= 0.1f)
+        if (Vector3.Distance(_tapButton.transform.position, _tapButtonTarget.position) <= 0.4f)
         {
             _speedButton = 0f;
             _animatorTapButton.enabled = true;

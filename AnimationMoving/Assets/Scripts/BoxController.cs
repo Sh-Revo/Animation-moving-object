@@ -33,9 +33,10 @@ public class BoxController : MonoBehaviour, IPointerDownHandler
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, _target.position) <= 0.2f)
+        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
         {
-            _wayPointIndex = 1;
+            _speed = 0;
+            //_wayPointIndex = 1;
         }
     }
 

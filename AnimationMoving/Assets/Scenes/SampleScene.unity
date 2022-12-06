@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7603949926113364438, guid: f7d304264a2ff8041a6910cdeee9aa88, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7603949926113364459, guid: f7d304264a2ff8041a6910cdeee9aa88, type: 3}
       propertyPath: m_Name
       value: T_ShirtH
@@ -278,7 +282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 54854cb976c41e541a7715e5823c33db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -558,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 2079513466126731658, guid: bc95431c09e4b46489714739df440af7, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2079513466126731658, guid: bc95431c09e4b46489714739df440af7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4305749173075509384, guid: bc95431c09e4b46489714739df440af7, type: 3}
       propertyPath: m_Layer
@@ -956,12 +964,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.10980393, g: 0.1137255, b: 0.1254902, a: 0}
-  m_projectionMatrixMode: 2
+  m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 49.9836
+  m_FocalLength: 16.516582
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -969,10 +977,10 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 27
+  far clip plane: 80
+  field of view: 75
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1738,7 +1746,7 @@ Transform:
   m_GameObject: {fileID: 1980195996}
   m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 20, z: 20}
-  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_LocalScale: {x: 50, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1976,6 +1984,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 27f927ba674eae642b3d031dc8a4e645, type: 3}
       propertyPath: m_Name
       value: 11563_gift_box_V3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27f927ba674eae642b3d031dc8a4e645, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3237123015922789203, guid: 27f927ba674eae642b3d031dc8a4e645, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2272,6 +2284,10 @@ PrefabInstance:
     - target: {fileID: 7571019611941222853, guid: 6f01316ff8a4ba34d82bbe129edf7e9a, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571019611941222853, guid: 6f01316ff8a4ba34d82bbe129edf7e9a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f01316ff8a4ba34d82bbe129edf7e9a, type: 3}

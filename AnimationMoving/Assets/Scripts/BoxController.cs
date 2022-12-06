@@ -8,7 +8,6 @@ public class BoxController : MonoBehaviour, IPointerDownHandler
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed = 1f;
     private static bool _isTap;
-    private int _wayPointIndex = 0;
 
     private void Start()
     {
@@ -17,10 +16,7 @@ public class BoxController : MonoBehaviour, IPointerDownHandler
 
     private void Update()
     {
-        if (_wayPointIndex == 0)
-        {
-            BoxMove();
-        }
+        BoxMove();
     }
 
     public static bool IsTap
@@ -33,10 +29,9 @@ public class BoxController : MonoBehaviour, IPointerDownHandler
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
+        if (Vector3.Distance(transform.position, _target.position) <= 1f)
         {
             _speed = 0;
-            //_wayPointIndex = 1;
         }
     }
 

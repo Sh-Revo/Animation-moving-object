@@ -17,7 +17,7 @@ public class MoveImage : MonoBehaviour
         Vector3 direction = _target.position - transform.position;
         transform.Translate(direction.normalized * _speed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, _target.position) <= 0.1f)
+        if (Vector3.Distance(transform.position, _target.position) <= 0.4f)
         {
             _speed = 0;
             Destroy(gameObject);
